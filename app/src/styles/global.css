@@ -272,11 +272,15 @@ p {
 
 .nav-drawer {
   position: fixed;
-  inset: var(--header) 0 0 0;
-  z-index: 35;
+  top: var(--header);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
   border-top: 1px solid var(--line);
-  background: rgba(9, 9, 8, 0.96);
+  background: var(--bg);
   padding: 1.6rem 1.125rem 2rem;
+  overflow: auto;
 }
 
 .nav-drawer[hidden] {

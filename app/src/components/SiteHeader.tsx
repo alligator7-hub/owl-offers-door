@@ -43,6 +43,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
+    <>
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <div className="header-inner">
         <Link className="brand" to="/" aria-label="Owl Offers home">
@@ -80,8 +81,13 @@ export function SiteHeader() {
           <span className="visually-hidden">{open ? "Close menu" : "Open menu"}</span>
         </button>
       </div>
+    </header>
 
-      <div className={`nav-drawer${open ? " is-open" : ""}`} id={menuId} hidden={!open}>
+      <div
+        className={`nav-drawer${open ? " is-open" : ""}`}
+        id={menuId}
+        hidden={!open}
+      >
         <nav className="nav-mobile" aria-label="Mobile">
           {links.map((link, i) => {
             const Comp = link.to.includes("#") ? Link : NavLink;
@@ -101,6 +107,6 @@ export function SiteHeader() {
           </Link>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
