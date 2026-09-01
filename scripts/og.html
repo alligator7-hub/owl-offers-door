@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: Fraunces;
+      src: local("Fraunces"), local("Georgia");
+    }
+    html, body { margin: 0; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: #090908;
+      color: #f3eee4;
+      font-family: Georgia, "Iowan Old Style", serif;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(90% 80% at 0% 0%, rgba(196,106,58,.22), transparent 55%);
+    }
+    .card {
+      position: relative;
+      padding: 72px 88px;
+      height: 630px;
+      box-sizing: border-box;
+    }
+    .rule {
+      width: 3px;
+      height: 72px;
+      background: #c46a3a;
+      margin-bottom: 36px;
+    }
+    .kicker {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 18px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #e8d9b8;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-weight: 450;
+      font-size: 68px;
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      max-width: 16ch;
+      margin: 0 0 36px;
+    }
+    .sub {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 20px;
+      color: #8a8478;
+      letter-spacing: .04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="rule"></div>
+    <p class="kicker">Owl Offers</p>
+    <h1>The shop looks ready. The homeowner actually calls.</h1>
+    <p class="sub">A studio for local service shops</p>
+  </div>
+</body>
+</html>
