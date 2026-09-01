@@ -1,8 +1,11 @@
-# Owl Offers convert door
+# Owl Offers door
 
-Public landing page for Owl Offers.
+Public sales page for the $497 public-page look.
 
-- Live: GitHub Pages
-- Custom domain later: owloffers.com (DNS still empty as of 2026-08-31)
-- Primary action: mailto owloffersofficial@gmail.com
-- Do not point this at shopowloffers.com (merch store)
+Live: https://alligator7-hub.github.io/owl-offers-door/
+
+- `index.html` — convert door
+- `sample.html` — fictional SAMPLE audit (Northfork Fence & Gate)
+- Intake composes mail to owloffersofficial@gmail.com
+
+Not merch. Not Linktree. Domain DNS is not changed from this repo.
