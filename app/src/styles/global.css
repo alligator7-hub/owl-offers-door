@@ -271,9 +271,12 @@ p {
 }
 
 .nav-drawer {
+  position: fixed;
+  inset: var(--header) 0 0 0;
+  z-index: 35;
   border-top: 1px solid var(--line);
-  background: var(--bg);
-  padding: 1.25rem 1.125rem 2rem;
+  background: rgba(9, 9, 8, 0.96);
+  padding: 1.6rem 1.125rem 2rem;
 }
 
 .nav-drawer[hidden] {
@@ -618,51 +621,14 @@ h2 {
   min-height: 14.5rem;
 }
 
-.shop-sky {
-  height: 5.4rem;
-  background:
-    linear-gradient(180deg, #1c1914 0%, #2a2318 55%, #3a2c1c 100%);
-  position: relative;
-  overflow: hidden;
+.shop-land {
+  display: block;
+  width: 100%;
+  height: 5.2rem;
 }
 
-.shop-sky-quiet {
-  height: 3.4rem;
-  background: linear-gradient(180deg, #161410, #241c14);
-}
-
-.shop-ridge {
-  position: absolute;
-  inset: auto 0 0;
-  height: 2.1rem;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #1a1713 0 10px,
-      #0f0e0c 10px 12px,
-      #1a1713 12px 22px
-    );
-  opacity: 0.85;
-}
-
-.shop-truck {
-  position: absolute;
-  right: 12%;
-  bottom: 1.15rem;
-  width: 3.4rem;
-  height: 1.15rem;
-  background: #c46a3a;
-  box-shadow: 0.85rem 0.35rem 0 -0.15rem #2a2118;
-}
-
-.shop-truck::before {
-  content: "";
-  position: absolute;
-  left: 0.15rem;
-  top: -0.45rem;
-  width: 1.7rem;
-  height: 0.5rem;
-  background: #8d4a28;
+.device.is-compact .shop-after .shop-land {
+  height: 3.2rem;
 }
 
 .shop-copy {

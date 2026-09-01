@@ -2,6 +2,21 @@ type ScreenProps = {
   compact?: boolean;
 };
 
+function Landscape({ dusk = false }: { dusk?: boolean }) {
+  return (
+    <svg className={`shop-land${dusk ? " is-dusk" : ""}`} viewBox="0 0 360 90" preserveAspectRatio="none" aria-hidden="true">
+      <rect width="360" height="90" fill={dusk ? "#1a1610" : "#221c16"} />
+      <path d="M0 58c40-18 70-8 110-16 36-7 54 4 90-6 40-11 70-4 100-12 20-5 40 2 60-4v70H0z" fill={dusk ? "#2a2218" : "#3a2c1c"} />
+      {Array.from({ length: 18 }, (_, i) => {
+        const x = 8 + i * 20;
+        return <rect key={x} x={x} y={42} width="3" height="28" fill="#0f0e0c" opacity="0.85" />;
+      })}
+      <rect x="268" y="50" width="42" height="14" fill="#c46a3a" />
+      <rect x="272" y="42" width="18" height="10" fill="#8d4a28" />
+    </svg>
+  );
+}
+
 export function ShopBefore({ compact = false }: ScreenProps) {
   return (
     <figure className={`device${compact ? " is-compact" : ""}`}>
@@ -15,10 +30,7 @@ export function ShopBefore({ compact = false }: ScreenProps) {
         <span />
       </div>
       <div className="shop-screen shop-before">
-        <div className="shop-sky">
-          <div className="shop-ridge" />
-          <div className="shop-truck" />
-        </div>
+        <Landscape />
         <div className="shop-copy">
           <p className="shop-name">Northfork Fence &amp; Gate</p>
           <h3>Quality you can see.</h3>
@@ -46,9 +58,7 @@ export function ShopAfter({ compact = false }: ScreenProps) {
         <span />
       </div>
       <div className="shop-screen shop-after">
-        <div className="shop-sky shop-sky-quiet">
-          <div className="shop-ridge" />
-        </div>
+        <Landscape dusk />
         <div className="shop-copy">
           <p className="shop-name">Northfork Fence &amp; Gate</p>
           <h3>Wood and vinyl fence for rural lots and river-county homes.</h3>
