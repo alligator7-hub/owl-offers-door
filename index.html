@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Owl Offers</title>
-  <meta name="description" content="Owl Offers helps local service shops look like the place people already trust.">
+  <title>Owl Offers — a paid look at the page that should earn the call</title>
+  <meta name="description" content="Owl Offers reviews one public page for local service shops: what is clear, what creates doubt, and what to fix first. $497. Written review, ranked list, replacement copy, short walkthrough.">
+  <link rel="canonical" href="https://alligator7-hub.github.io/owl-offers-door/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Owl Offers — the shop looks ready. The homeowner actually calls.">
+  <meta property="og:description" content="A paid public-page look for local service shops. One page. Ranked fixes. No promised call counts.">
+  <meta property="og:url" content="https://alligator7-hub.github.io/owl-offers-door/">
+  <meta property="og:image" content="https://alligator7-hub.github.io/owl-offers-door/alex.png">
+  <meta name="twitter:card" content="summary">
   <style>
     :root {
       --bg: #0e0f10;
@@ -12,18 +19,23 @@
       --muted: #b7b1a7;
       --line: #2a2c2e;
       --accent: #e8dcc8;
+      --card: #161718;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
     body {
       font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      line-height: 1.55;
     }
-    header, main, footer { width: min(42rem, calc(100% - 2.5rem)); margin: 0 auto; }
-    header { padding: 2.25rem 0 0; }
+    a { color: var(--accent); }
+    .skip {
+      position: absolute; left: -999px; top: 0;
+      background: var(--accent); color: #161513; padding: .6rem 1rem;
+    }
+    .skip:focus { left: 1rem; top: 1rem; z-index: 10; }
+    header, .wrap, footer { width: min(44rem, calc(100% - 2.5rem)); margin: 0 auto; }
+    header { padding: 2.25rem 0 0; display: flex; justify-content: space-between; align-items: baseline; }
     .mark {
       letter-spacing: 0.22em;
       font-size: 0.72rem;
@@ -31,51 +43,294 @@
       font-weight: 600;
       color: var(--accent);
     }
-    main { padding: 4.5rem 0 3rem; flex: 1; }
+    .nav a {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav a:hover, .nav a:focus { color: var(--fg); }
+    section { padding: 3.25rem 0 0; }
+    .hero { padding: 4rem 0 2rem; }
+    .eyebrow {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 1rem;
+    }
     h1 {
       font-weight: 500;
       font-size: clamp(2rem, 6vw, 3.15rem);
       line-height: 1.15;
-      margin: 0 0 1.5rem;
+      margin: 0 0 1.25rem;
       letter-spacing: -0.02em;
     }
-    p { font-size: 1.15rem; color: var(--muted); margin: 0 0 1.15rem; max-width: 36rem; }
+    h2 {
+      font-weight: 500;
+      font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+      margin: 0 0 1rem;
+    }
+    p { font-size: 1.12rem; color: var(--muted); margin: 0 0 1.1rem; max-width: 38rem; }
+    .trust { font-size: 0.98rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; margin-top: 1.75rem; align-items: center; }
     .cta {
       display: inline-block;
-      margin-top: 1.75rem;
-      padding: 0.9rem 1.25rem;
+      padding: 0.95rem 1.3rem;
       background: var(--accent);
       color: #161513;
       text-decoration: none;
-      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 0.92rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      min-height: 44px;
     }
     .cta:hover { filter: brightness(1.05); }
-    .note { margin-top: 1.25rem; font-size: 0.95rem; }
-    footer {
-      padding: 1.5rem 0 2.25rem;
+    .cta:focus, a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .cta-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+    .list { list-style: none; padding: 0; margin: 0; }
+    .list li {
       border-top: 1px solid var(--line);
-      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      padding: 1rem 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .list strong { color: var(--fg); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 1.15rem 1.2rem;
+      margin: 0 0 0.85rem;
+    }
+    .card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    .price {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      color: var(--fg);
+      margin: 0.4rem 0 0.6rem;
+      letter-spacing: -0.03em;
+    }
+    .alex {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .alex img {
+      width: 96px; height: 120px; object-fit: cover; border: 1px solid var(--line);
+    }
+    form { display: grid; gap: 0.75rem; margin-top: 1rem; }
+    label {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      display: grid;
+      gap: 0.3rem;
+    }
+    input, select, textarea {
+      font: inherit;
+      font-size: 1rem;
+      padding: 0.7rem 0.75rem;
+      background: #121314;
+      color: var(--fg);
+      border: 1px solid var(--line);
+      min-height: 44px;
+      width: 100%;
+    }
+    textarea { min-height: 5.5rem; resize: vertical; }
+    button.cta { border: 0; cursor: pointer; justify-self: start; }
+    .fine {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.88rem;
+      color: #8d8880;
+    }
+    .sample-flag {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      padding: 2.25rem 0;
+      margin-top: 3.5rem;
+      border-top: 1px solid var(--line);
+      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 0.75rem;
       letter-spacing: 0.08em;
       color: #8d8880;
       text-transform: uppercase;
     }
+    @media (max-width: 560px) {
+      .alex { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header>
     <div class="mark">OWL OFFERS</div>
+    <nav class="nav"><a href="#intake">Send your page</a></nav>
   </header>
-  <main>
-    <h1>The shop looks ready. The homeowner actually calls.</h1>
-    <p>Owl Offers helps local service shops look like the place people already trust. We look at the public page a homeowner actually sees. Then we stay on the words, the page, and the follow-up.</p>
-    <p>If your phone should be ringing and it is not, send the page. We will tell you what they see.</p>
-    <a class="cta" href="mailto:owloffersofficial@gmail.com?subject=Look%20at%20my%20public%20page">Email us your public page</a>
-    <p class="note">owloffersofficial@gmail.com</p>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="h1">
+      <p class="eyebrow">A paid public-page look for local service shops</p>
+      <h1 id="h1">The shop looks ready. The homeowner actually calls.</h1>
+      <p>Owl Offers reviews the page a homeowner sees before they call—then shows you what is clear, what creates doubt, and what to fix first.</p>
+      <div class="actions">
+        <a class="cta" href="#what-you-get">See what the look includes</a>
+        <a class="cta cta-secondary" href="#intake">Send your page</a>
+      </div>
+      <p class="trust">Built by Alex Anderson. Starting in the Pacific Northwest. Available to local service shops anywhere.</p>
+    </section>
+
+    <section id="why" aria-labelledby="why-h">
+      <h2 id="why-h">Why good shops lose the call</h2>
+      <p>The work is fine. The truck is clean. The page still asks a tired homeowner to guess.</p>
+      <ul class="list">
+        <li><strong>The first screen is a slogan.</strong> They cannot tell what you do in one glance, so they bounce to the next result.</li>
+        <li><strong>The phone is a scavenger hunt.</strong> Gallery and About sit where Call should sit.</li>
+        <li><strong>Trust is claimed, not shown.</strong> “Family owned” does not answer “will you show up for this job.”</li>
+        <li><strong>After they write, silence.</strong> No window for a callback. They hire whoever answers.</li>
+      </ul>
+      <p>Owl looks at that path. Not at a menu of ads, retainers, or search tricks.</p>
+    </section>
+
+    <section id="inspects" aria-labelledby="inspects-h">
+      <h2 id="inspects-h">Five things Owl inspects</h2>
+      <ol class="list">
+        <li><strong>First look.</strong> What the homeowner understands in the first screen—work, place, next step.</li>
+        <li><strong>The offer.</strong> Whether the page names a real job or a mood.</li>
+        <li><strong>Trust on the page.</strong> What would make a careful person stay, and what sounds like filler.</li>
+        <li><strong>The call path.</strong> Number, form, hours, and whether a thumb can finish the action.</li>
+        <li><strong>After contact.</strong> What you imply happens next, and whether that is honest.</li>
+      </ol>
+    </section>
+
+    <section id="what-you-get" aria-labelledby="get-h">
+      <h2 id="get-h">What you receive</h2>
+      <p>One main public page plus the path from first look to first contact.</p>
+      <div class="card"><h3>Marked-up written review</h3><p>What helps the call. What hurts it. In plain language.</p></div>
+      <div class="card"><h3>Ranked list</h3><p>Fix now. Fix next. Leave alone. So you do not rebuild the whole site for a slogan.</p></div>
+      <div class="card"><h3>Replacement copy</h3><p>For the highest-impact section. You can paste it, or use it as a brief for whoever edits the page.</p></div>
+      <div class="card"><h3>Short recorded walkthrough</h3><p>You hear the page as a homeowner would, with the ranks explained.</p></div>
+      <div class="card"><h3>One written question round</h3><p>Seven days after delivery. Email. Not an open retainer.</p></div>
+      <p>Not included: ads, retainers, a promised number of calls.</p>
+    </section>
+
+    <section id="sample" aria-labelledby="sample-h">
+      <h2 id="sample-h">A sample look</h2>
+      <p class="sample-flag">SAMPLE — fictional shop. Not a real client.</p>
+      <p>Northfork Fence &amp; Gate is made up. The first screen said “Quality you can see.” The number lived in the footer. Owl would rank: name the work and put Call on the first screen; then explain the callback; leave the truck photo alone.</p>
+      <p><a href="sample.html">Read the full SAMPLE audit</a> — before notes, three observations, ranked fixes, rewritten first screen.</p>
+    </section>
+
+    <section id="process" aria-labelledby="process-h">
+      <h2 id="process-h">Three steps</h2>
+      <ol class="list">
+        <li><strong>You send the page.</strong> Owner name, shop, URL, what you think is blocking calls. That is intake.</li>
+        <li><strong>Owl looks.</strong> One main public page and the path to first contact. Five business days after intake is complete.</li>
+        <li><strong>You get the packet.</strong> Written review, ranked list, replacement copy, recorded walkthrough. Then seven days for written questions.</li>
+      </ol>
+    </section>
+
+    <section id="alex" aria-labelledby="alex-h">
+      <h2 id="alex-h">Who does the work</h2>
+      <div class="alex">
+        <img src="alex.png" width="400" height="500" alt="Alex Anderson">
+        <div>
+          <p>Alex Anderson, CEO of Owl Offers. Starting in the Pacific Northwest. Available to local service shops anywhere.</p>
+          <p>I find and rank friction on the public page. I do not promise a number of calls. I do not run a fake team. If this look is a fit, you work with me.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="price" aria-labelledby="price-h">
+      <h2 id="price-h">Price and scope</h2>
+      <p class="price">$497</p>
+      <p>One main public page. Path from first look to first contact. The packet above. Delivery in five business days after complete intake.</p>
+      <p>Price sits here, after you can see the work—not in the headline.</p>
+    </section>
+
+    <section id="risk" aria-labelledby="risk-h">
+      <h2 id="risk-h">If the list is not there</h2>
+      <p>Owl Offers does not control demand, how you answer the phone, reviews, or the job itself. No call-count promise.</p>
+      <p>If the review does not give you a clear, ranked list of changes, tell us within seven days of delivery. We will redo it once, or refund it.</p>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Questions</h2>
+      <div class="card"><h3>Is this ads or ongoing work?</h3><p>No. It is one paid look. No retainer in this purchase.</p></div>
+      <div class="card"><h3>Do you promise more calls?</h3><p>No. I rank what is in the way. You still have to pick up and do the work.</p></div>
+      <div class="card"><h3>How many pages?</h3><p>One main public page plus how someone would actually contact you from it.</p></div>
+      <div class="card"><h3>How do I pay?</h3><p>Send the page. I will confirm scope and how to pay by email. There is no card form on this door yet.</p></div>
+      <div class="card"><h3>Where do you work?</h3><p>Starting in the Pacific Northwest and the West Coast. Local service shops anywhere can send a page.</p></div>
+    </section>
+
+    <section id="intake" aria-labelledby="intake-h">
+      <h2 id="intake-h">Send your page</h2>
+      <p>This opens an email to owloffersofficial@gmail.com with your details. If your mail app does not open, write that address yourself.</p>
+      <form id="intake-form" action="mailto:owloffersofficial@gmail.com" method="post" enctype="text/plain">
+        <label>Owner name <input name="owner" id="owner" required autocomplete="name"></label>
+        <label>Shop name <input name="shop" id="shop" required></label>
+        <label>Public page URL <input name="url" id="url" type="url" required placeholder="https://"></label>
+        <label>Service category <input name="category" id="category" required placeholder="e.g. fence, HVAC, electrical"></label>
+        <label>Service area <input name="area" id="area" required placeholder="region or counties you serve"></label>
+        <label>Email <input name="email" id="email" type="email" required autocomplete="email"></label>
+        <label>Phone <input name="phone" id="phone" type="tel" required autocomplete="tel"></label>
+        <label>One thing you think is blocking calls <textarea name="blocker" id="blocker" required></textarea></label>
+        <button class="cta" type="submit">Compose email with these details</button>
+      </form>
+      <p class="fine">Fallback: owloffersofficial@gmail.com · No ads checkout on this page · Privacy: I use this to look at the page you named, not to sell a list.</p>
+    </section>
+
+    <section id="final" aria-labelledby="final-h">
+      <h2 id="final-h">When the page should already be earning the call</h2>
+      <p>Send the URL. You get a ranked look, not a pitch deck.</p>
+      <div class="actions">
+        <a class="cta" href="#intake">Send your page</a>
+        <a class="cta cta-secondary" href="sample.html">Read the SAMPLE</a>
+      </div>
+    </section>
   </main>
-  <footer>Owl Offers</footer>
+  <footer class="wrap">Owl Offers · not merch, not a link farm</footer>
+  <script>
+    document.getElementById("intake-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var g = function (id) { return document.getElementById(id).value.trim(); };
+      var body = [
+        "Owner name: " + g("owner"),
+        "Shop name: " + g("shop"),
+        "Public page URL: " + g("url"),
+        "Service category: " + g("category"),
+        "Service area: " + g("area"),
+        "Email: " + g("email"),
+        "Phone: " + g("phone"),
+        "One blocker: " + g("blocker")
+      ].join("\\n");
+      var shop = g("shop") || "shop";
+      var href = "mailto:owloffersofficial@gmail.com?subject=" +
+        encodeURIComponent("Public page look — " + shop) +
+        "&body=" + encodeURIComponent(body);
+      window.location.href = href;
+    });
+  </script>
 </body>
 </html>
