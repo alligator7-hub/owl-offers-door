@@ -1,11 +1,5 @@
 # Owl Offers door
 
-Public sales page for the $497 public-page look.
+Public studio site: https://alligator7-hub.github.io/owl-offers-door/
 
-Live: https://alligator7-hub.github.io/owl-offers-door/
-
-- `index.html` — convert door
-- `sample.html` — fictional SAMPLE audit (Northfork Fence & Gate)
-- Intake composes mail to owloffersofficial@gmail.com
-
-Not merch. Not Linktree. Domain DNS is not changed from this repo.
+Firm first. The $497 public-page look is the first paid step, not the brand.
