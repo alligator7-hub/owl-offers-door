@@ -1,0 +1,29 @@
+type OwlMarkProps = {
+  className?: string;
+  title?: string;
+};
+
+export function OwlMark({ className, title = "Owl Offers" }: OwlMarkProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 32 32"
+      width="28"
+      height="28"
+      role="img"
+      aria-label={title}
+    >
+      <title>{title}</title>
+      <rect width="32" height="32" rx="2" fill="#12110f" />
+      <path
+        d="M8 13.2c0-4.2 3.4-7.4 8-7.4s8 3.2 8 7.4c0 5.4-3.2 9.8-8 12.2-4.8-2.4-8-6.8-8-12.2Z"
+        fill="#e8d9b8"
+      />
+      <circle cx="12.4" cy="14" r="3.1" fill="#090908" />
+      <circle cy="14" cx="19.6" r="3.1" fill="#090908" />
+      <circle cx="12.7" cy="13.7" r="1.15" fill="#e8d9b8" />
+      <circle cx="19.9" cy="13.7" r="1.15" fill="#e8d9b8" />
+      <path d="M16 16.4 14.6 19h2.8L16 16.4Z" fill="#c46a3a" />
+    </svg>
+  );
+}
