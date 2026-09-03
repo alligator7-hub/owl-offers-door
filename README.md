@@ -2,7 +2,7 @@
 
 Public studio site for Owl Offers — a small firm for local service shops.
 
-Live: https://alligator7-hub.github.io/owl-offers-door/
+Live: https://owloffers.com/ (GitHub Pages custom domain; `alligator7-hub.github.io/owl-offers-door/` redirects there)
 
 The brand is the studio. The $497 public-page look is the first paid step, not the headline.
 
@@ -13,16 +13,16 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:5173/owl-offers-door/ (the GitHub Pages base path).
+Then open http://localhost:5173/ (the site is served from the domain root).
 
-Preview the GitHub Pages build (base path `/owl-offers-door/`):
+Preview the GitHub Pages build (base path `/`):
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Preview serves the site at http://localhost:4173/owl-offers-door/.
+Preview serves the site at http://localhost:4173/.
 
 ## Routes
 
