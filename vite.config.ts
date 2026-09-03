@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   root: resolve(__dirname, "app"),
   publicDir: resolve(__dirname, "public"),
-  base: "/owl-offers-door/",
+  base: "/",
   plugins: [react()],
   build: {
     outDir: resolve(__dirname, "docs"),
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    open: "/owl-offers-door/",
+    open: "/",
   },
   preview: {
     port: 4173,
