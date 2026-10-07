@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Keep operator notes out of the Pages artifact
+        run: rm -f docs/UNLOCKS-NEEDING-ALEX.md
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
