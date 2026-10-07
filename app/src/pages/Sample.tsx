@@ -47,7 +47,9 @@ export function Sample() {
   return (
     <main id="main" className="page-sample">
       <div className="wrap page-lead">
-        <p className="sample-banner">SAMPLE — fictional shop. Not a real business. Not a real client.</p>
+        <p className="sample-banner" role="status">
+          SAMPLE — fictional shop. Not a real business. Not a real client.
+        </p>
         <p className="eyebrow">Work piece</p>
         <h1>Northfork Fence &amp; Gate</h1>
         <p className="lede">

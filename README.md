@@ -36,7 +36,7 @@ Intake composes `mailto:owloffersofficial@gmail.com`. No checkout, Stripe, Kit, 
 
 ## GitHub Pages
 
-`npm run build` writes a static SPA into `docs/` (gitignored, used by Actions) and copies that build to the repo root (`index.html`, `404.html`, `assets/`) so GitHub Pages can keep serving from `main` `/`.
+`npm run build` writes a static SPA into `docs/` (generated files gitignored; `docs/UNLOCKS-NEEDING-ALEX.md` is kept) and copies that build to the repo root (`index.html`, `404.html`, `sample/index.html`, `start/index.html`, `assets/`) so GitHub Pages can keep serving from `main` `/`. `/sample` and `/start` are real files so those routes are not HTTP 404 shells.
 
 Two publish options:
 
